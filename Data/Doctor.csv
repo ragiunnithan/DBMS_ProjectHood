@@ -1,0 +1,8 @@
+﻿DoctorID,FirstName,LastName,Speciality,Phone,Email,Gender,UserID,DeptID,,,,,,,,,
+DR3456,Sarah,Park,Cardiology,555-123-4567,sarah.park@medicalgroup.com,Female,26,D001,,,,,,,,,
+DR2345,James,Lee,Dermatology,555-234-5678,james.lee@medicalgroup.com,Male,27,D002,,,,,,,,,
+DR7890,Emily,Chen,Pediatrics,555-345-6789,emily.chen@medicalgroup.com,Female,28,D003,,,,,,,,,
+DR5678,David,Kim,Neurology,555-456-7890,david.kim@medicalgroup.com,Male,29,D004,,,,,,,,,
+DR9012,Rachel,Wong,Oncology,555-567-8901,rachel.wong@medicalgroup.com,Female,30,D005,,,,,,,,,
+DR4567,Daniel,Rodriguez,Family Medicine,555-678-9012,daniel.rodriguez@medicalgroup.com,Male,31,D006,,,,,,,,,
+DR6789,Melissa,Singh,Ophthalmology,555-789-0123,melissa.singh@medicalgroup.com,Female,32,D007,,,,,,,,,

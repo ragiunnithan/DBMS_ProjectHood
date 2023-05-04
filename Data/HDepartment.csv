@@ -1,0 +1,8 @@
+﻿DeptID,Specialization,Building,Floor
+D001,Cardiology,Main Building, 3rd Floor
+D002,Pediatrics,East Wing, 2nd Floor
+D003,Oncology,West Wing, 1st Floor
+D004,Neurology,North Wing, 4th Floor
+D005,Dermatology,South Wing, 5th Floor
+D006,Family Medicine,Main Building, 1st Floor
+D007,Ophthalmology,East Wing, 3rd Floor
