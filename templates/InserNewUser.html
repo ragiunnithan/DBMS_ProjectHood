@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Insert new User into the database</h2>
+    <form action="/AddNewUser" method="POST">
+        <div><label>User ID</label>: <input type=number name='usrid' value="Type here"></div>
+        <div><label>UserName</label>: <input type=text name='usrnme' value="Type here"></div>
+        <div><label>Password</label>: <input type=text name='pwd 'value="Type here"></div>
+        
+    </form>
+{% endblock %}
+

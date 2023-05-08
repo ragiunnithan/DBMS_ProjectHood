@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Insert new patient into existing study</h2>
+    <form action="/AddNewPatient" method="POST">
+        <div><label>Patient ID</label>: <input type=number name=patientid value="Type here"></div>
+        <div><label>SSN</label>: <input type=text name=SSN value="Type here"></div>
+        <div><label>First Name</label>: <input type=text name=frstname value="Type here"></div>
+        <div><label>Last Name</label>: <input type=text name=lstname  value="Type here"></div>
+        <div><label>DOB</label>: <input type=text name=dob  value="Type here"></div>
+        <div><label>Phone</label>: <input type=text name=phn  value="Type here"></div>
+        <div><label>Email</label>: <input type=text name=email value="Type here"></div>
+        <div><label>Gendre</label>: <input type=text name=gendre  value="Type here"></div>
+        <div><label>Work Type</label>: <input type=text name=wrktype  value="Type here"></div>
+        <div><label>Residence Type</label>: <input type=text name=rsdtype  value="Type here"></div>
+        <div><label>Marital Status</label>: <input type=text name=mrtsts value="Type here"></div>
+        <div><label>User ID</label>: <input type=number name=usrID value="Type here"></div>
+        <div><label>Doctor ID</label>: <input type=text name=dctID value="Type here"></div>
+	    <div><button type="submit">Submit</button></div>
+    </form>
+{% endblock %}
+
