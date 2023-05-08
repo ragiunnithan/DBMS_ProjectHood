@@ -1,0 +1,8 @@
+#app.yaml
+runtime: python39
+
+env_variables:
+  CLOUD_SQL_USERNAME: hart-user
+  CLOUD_SQL_PASSWORD: password
+  CLOUD_SQL_DATABASE_NAME: hart-db
+  CLOUD_SQL_CONNECTION_NAME: hart-385700:us-east1:hart-instance
