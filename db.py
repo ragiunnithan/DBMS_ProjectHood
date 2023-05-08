@@ -36,3 +36,27 @@ def get_patienthealth():
         cursor.execute('SELECT CONCAT(P.FirstName, " ", P.LastName) as PatName, CONCAT(D.FirstName, " ",  D.LastName) as DocName, D.Speciality, H.Hypertension, H.BMI, H.Smokingstatus, H.MajorEvent FROM Patient P INNER JOIN Health_relation H INNER JOIN Doctor D WHERE P.PatientID = H.PatientID AND P.DoctorID = D.DoctorID AND H.MajorEvent = 1 ORDER BY P.FirstName DESC ;')
         PatHlth = cursor.fetchall()
         return PatHlth  
+
+
+def insert_patient(patientid, SSN, frstname, lstname, dob , phn, email, genre , wrktype, rsdtype, mrtsts, usrID, dctID):
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        cursor.execute('INSERT INTO patient (PatientID, SSN, Firstname, Lastname, DOB, Phone, Gender, workType, ResidenceType, Email, MaritalStatus, UserID, DoctorID) VALUES(%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s)',
+                       (patientid, SSN, frstname, lstname, dob , phn, email, genre , wrktype, rsdtype, mrtsts, usrID, dctID))
+    conn.commit()
+    conn.close()
+
+def insert_user(usrid, usrnme, pwd):
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        cursor.execute('INSERT INTO UserN (UserID, Username, Password) VALUES(%d, %s, %s)',
+                       (usrid, usrnme, pwd))
+    conn.commit()
+    conn.close()
+
+def get_user():
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        cursor.execute('SELECT UserID, Username FROM UserN  ORDER BY UserID DESC;')
+        user = cursor.fetchall()
+        return user 
