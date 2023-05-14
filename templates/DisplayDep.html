@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1>All Departments
+
+
+  </h1>
+    <table>
+    <tr><th>Department ID</th><th>Department Specialization</th><th>Department Building</th><th>Department Floor</th></tr>
+    {% for dep in DepInfo%}
+      <tr><td>{{dep.DeptID}}</td><td>{{dep.Specialization}}</td><td>{{dep. Building}}</td><td>{{dep.BFloor}}</td></tr>
+    {% endfor %}
+    </table>
+{% endblock %}
+

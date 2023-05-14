@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Insert new patient into existing study</h2>
+    <form action="/AddNewPatient" method="POST">
+        <div><label>Patient ID</label>: <input type=text name=patientid value="Type here"></div>
+        <div><label>SSN</label>: <input type=text name=SSN value="Type here"></div>
+        <div><label>First Name</label>: <input type=text name=frstname value="Type here"></div>
+        <div><label>Last Name</label>: <input type=text name=lstname  value="Type here"></div>
+        <div><label>DOB</label>: <input type=text name=dob  value="Type here"></div>
+        <div><label>Phone</label>: <input type=text name=phn  value="Type here"></div>
+        <div><label>Email</label>: <input type=text name=email value="Type here"></div>
+        <div><label>Gendre</label>: <input type=text name=gender  value="Type here"></div>
+        <div><label>Work Type</label>: <input type=text name=wrktype  value="Type here"></div>
+        <div><label>Residence Type</label>: <input type=text name=rsdtype  value="Type here"></div>
+        <div><label>Marital Status</label>: <input type=text name=mrtsts value="Type here"></div>
+        <div>
+            <label for = "docid">Choose a Doctor ID:</label>
+            <select id = "docid"  name= docid required>
+            <option value = "">Select the Doctor ID</option>
+            <option value = "DR3456">DR3456</option>
+            <option value = "DR2345">DR2345</option>
+            <option value = "DR7890">DR7890</option>
+            <option value = "DR5678">DR5678</option>
+            <option value = "DR9012">DR9012</option>
+            <option value = "DR4567">DR4567</option>
+            <option value = "DR6789">DR6789</option>
+            </select>
+        </div>
+        <div><label>User ID</label>: <input type=text name=usrid value="Type here"></div>
+        <div><label>UserName</label>: <input type=text name=usrnme value="Type here"></div>
+        <div><label>Password</label>: <input type=text name=pwd value="Type here"></div>
+	    <div><button type="submit">Submit</button></div>
+    </form>
+{% endblock %}
+

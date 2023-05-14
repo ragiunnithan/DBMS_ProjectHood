@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Insert new User into the database</h2>
+    <form action="/AddNewDepartment" method="POST">
+        <div><label>Department ID</label>: <input type=text name=depid value="Type here"></div>
+        <div><label>Department Specialization</label>: <input type=text name=depnme value="Type here"></div>
+        <div><label>Department Building</label>: <input type=text name=depbldng value="Type here"></div>
+        <div><label>Department Floor</label>: <input type=text name=depfloor value="Type here"></div>
+        <div><button type="submit">Submit</button></div>
+    </form>
+{% endblock %}
