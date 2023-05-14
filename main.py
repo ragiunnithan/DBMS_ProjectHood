@@ -1,6 +1,7 @@
 # main.py controller
 from flask import Flask, redirect, request, url_for, render_template, jsonify
-from db import get_patient,get_patienthealth, insert_patient, insert_user, get_user
+
+from db import get_patient,get_patienthealth, insert_patient, insert_user, get_user, get_docid, insert_dep, get_Dep
 app = Flask(__name__)
 
 @app.route('/')
@@ -22,15 +23,22 @@ def PatientHealthInfo():
     return render_template('PatientHealthInfo.html', HealthInfo = pthlthinfo) 
 
 @app.route('/InsertNewPatient')#This needs to be same as the href in the layout.html
-def InsertNewPat():
-    return render_template('InserNewPatient.html')
+def InsertNewPatient():
+    #docid = get_docid()
+    #label_text = docid
+    return render_template('InsertNewPatient.html')
 
 @app.route('/AddNewPatient', methods=['POST'])#This needs to be same as the function name in action section for insert_customer.html
 def AddNewPatient():
+    insert_user(request.form['usrid'], request.form['usrnme'], request.form['pwd'])
+
     insert_patient(request.form['patientid'], request.form['SSN'], request.form['frstname'], request.form['lstname'], request.form['dob'],
-    request.form['phn'], request.form['email'], request.form['genre'], request.form['wrktype'], request.form['rsdtype'],
-    request.form['mrtsts'], request.form['usrID'], request.form['dctID'])
-    return redirect('/Patients')
+    request.form['phn'], request.form['email'], request.form['gender'], request.form['wrktype'], request.form['rsdtype'],
+    request.form['mrtsts'], request.form['docid'], request.form['usrid'])
+    
+    return redirect(url_for('Patients'))
+
+     
 
 ##This function will get all the Patients information from database
 ##and will display it on an html page
@@ -42,21 +50,21 @@ def Patients():
 
 
 
-@app.route('/InsertNewUser')#This needs to be same as the href in the layout.html
-def InsertNewUser():
-    return render_template('InserNewUser.html')
+@app.route('/InsertNewDep')#This needs to be same as the href in the layout.html
+def InsertNewDep():
+    return render_template('InserNewDepartment.html')
 
 
-@app.route('/AddNewUser', methods=['POST'])#This needs to be same as the function name in action section for insert_customer.html
-def AddNewUser():
-    insert_user(request.form['usrid'], request.form['usrnme'], request.form['pwd'])
-    return redirect('/DisplayAllUsers')
+@app.route('/AddNewDepartment', methods=['POST'])#This needs to be same as the function name in action section for insert_customer.html
+def AddNewDepartment():
+    insert_dep(request.form['depid'], request.form['depnme'], request.form['depbldng'], request.form['depfloor'])
+    return redirect(url_for('DisplayDep'))
 
     
-@app.route('/DisplayAllUsers')
-def DisplayAllUsers():
-    users = get_user() ##Function for getting all the information of patient from the database
-    return render_template('DisplayUser.html', UserInfo = users) 
+@app.route('/DisplayDep')
+def DisplayDep():
+    AllDep = get_Dep() ##Function for getting all the information of patient from the database
+    return render_template('DisplayDep.html', DepInfo = AllDep) 
 
     
 
