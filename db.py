@@ -38,18 +38,22 @@ def get_patienthealth():
         return PatHlth  
 
 
-def insert_patient(patientid, SSN, frstname, lstname, dob , phn, email, genre , wrktype, rsdtype, mrtsts, usrID, dctID):
+def insert_patient(patientid, SSN, frstname, lstname, dob , phn, email, genre , wrktype, rsdtype, mrtsts, dctID, usrid):
     conn = open_connection()
     with conn.cursor() as cursor:
-        cursor.execute('INSERT INTO patient (PatientID, SSN, Firstname, Lastname, DOB, Phone, Gender, workType, ResidenceType, Email, MaritalStatus, UserID, DoctorID) VALUES(%d, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %d, %s)',
-                       (patientid, SSN, frstname, lstname, dob , phn, email, genre , wrktype, rsdtype, mrtsts, usrID, dctID))
+        
+        #cursor.execute('INSERT INTO UserN (UserID, Username, Password) VALUES(%s, %s, %s)',
+        #               (usrid, usrnme, pwd))
+        cursor.execute('INSERT INTO Patient (PatientID, SSN, Firstname, Lastname, DOB, Phone, Gender, workType, ResidenceType, Email, MaritalStatus, UserID, DoctorID) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+                       (patientid, SSN, frstname, lstname, dob , phn,  genre , wrktype, rsdtype,email, mrtsts, usrid, dctID))
+        
     conn.commit()
     conn.close()
 
 def insert_user(usrid, usrnme, pwd):
     conn = open_connection()
     with conn.cursor() as cursor:
-        cursor.execute('INSERT INTO UserN (UserID, Username, Password) VALUES(%d, %s, %s)',
+        cursor.execute('INSERT INTO UserN (UserID, Username, Password) VALUES(%s, %s, %s)',
                        (usrid, usrnme, pwd))
     conn.commit()
     conn.close()
@@ -60,3 +64,27 @@ def get_user():
         cursor.execute('SELECT UserID, Username FROM UserN  ORDER BY UserID DESC;')
         user = cursor.fetchall()
         return user 
+
+def get_docid():  
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        cursor.execute('SELECT DoctorID FROM Doctor  ORDER BY DoctorID DESC;')
+        doctor = cursor.fetchall()
+        return doctor
+
+
+def insert_dep(depid, depnme, depbldng, depfloor):
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        
+        cursor.execute('INSERT INTO HDepartment(DeptID, Specialization, Building, BFloor) VALUES(%s, %s, %s, %s)',
+                       (depid, depnme, depbldng, depfloor))
+    conn.commit()
+    conn.close()
+
+def get_Dep():
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        cursor.execute('SELECT * FROM HDepartment;')
+        dep = cursor.fetchall()
+        return dep
